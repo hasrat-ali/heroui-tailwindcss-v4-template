@@ -2,7 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Button } from "@heroui/button";
+import { Switch } from "@heroui/switch";
+import { MoonIcon, SunIcon } from "@heroui/shared-icons";
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -15,12 +16,24 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <div>
-      The current theme is: {theme}
-      <Button color="danger" onPress={() => setTheme("light")}>
-        Light Mode
-      </Button>
-      <Button onPress={() => setTheme("dark")}>Dark Mode</Button>
-    </div>
+    <>
+      <Switch
+        defaultSelected
+        color="primary"
+        size="lg"
+        thumbIcon={({ isSelected, className }) =>
+          isSelected ? (
+            <SunIcon className={className} />
+          ) : (
+            <MoonIcon className={className} />
+          )
+        }
+        onValueChange={(isSelected) => {
+          setTheme(isSelected ? "dark" : "light");
+        }}
+      >
+        {theme} mode
+      </Switch>
+    </>
   );
 }
