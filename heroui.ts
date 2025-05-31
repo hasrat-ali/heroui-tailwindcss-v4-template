@@ -18,6 +18,9 @@ export default heroui({
           DEFAULT: "rgb(116 0 6)",
           foreground: "rgb(255 255 255)",
         },
+        divider: {
+          DEFAULT: "rgb(74 84 84)",
+        },
       },
     },
     dark: {
@@ -35,6 +38,9 @@ export default heroui({
         danger: {
           DEFAULT: "rgb(255 210 204)",
           foreground: "rgb(84 0 3)",
+        },
+        divider: {
+          DEFAULT: "rgb(170 180 179)",
         },
       },
     },
